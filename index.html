@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection Upload</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #00B4DB, #0083B0); /* Gradient background */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            text-align: center;
+            margin-top: 20px;
+            color: #ffffff;
+        }
+
+        /* Form Styling */
+        form {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 25px;
+            padding: 15px;
+            font-size: 1.1em;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            width: 100%;
+            background-color: #f4f4f9;
+            color: #333;
+            transition: border-color 0.3s ease;
+        }
+        img {
+            display: block;
+            max-width: 100%%; /* Adjust maximum width to make the image larger */
+            max-height: 100%%; /* Limit height to fit within the page */
+            margin: 20px auto; /* Center the image */
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="file"]:hover {
+            border-color: #2980b9;
+        }
+
+        button {
+            padding: 14px 24px;
+            background-color: #3498db;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        /* Result Section */
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-top: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            form {
+                width: 100%;
+                padding: 20px;
+            }
+
+            button {
+                font-size: 1em;
+                padding: 12px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Upload Image for Object Detection</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*">
+            <button type="submit">Upload and Detect</button>
+        </form>
+        <h2>Result:</h2>
+        {% if result_image %}
+        <img src="{{ result_image }}" alt="Detected Image">
+        {% endif %}
+    </div>
+</body>
+</html>
