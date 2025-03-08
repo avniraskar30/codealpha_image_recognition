@@ -1,2 +1,2 @@
 # task1
-Image
+Image Recognition
